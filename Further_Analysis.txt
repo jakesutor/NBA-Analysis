@@ -1,0 +1,4 @@
+Will need to perform some additional steps in cleansing the data:
+-Combine teams that moved and/or changed names
+-Calculate the 82 game totals for 2019-20
+-Calculate per game averages for comparison
