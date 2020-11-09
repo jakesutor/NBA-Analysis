@@ -1153,14 +1153,32 @@
             <map to='#4e79a7'>
               <bucket>&quot;2016-17&quot;</bucket>
             </map>
+            <map to='#59a14f'>
+              <bucket>&quot;2010-11&quot;</bucket>
+            </map>
             <map to='#76b7b2'>
               <bucket>&quot;2019-20&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;2014-15&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;2012-13&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;2015-16&quot;</bucket>
             </map>
             <map to='#e15759'>
               <bucket>&quot;2018-19&quot;</bucket>
             </map>
+            <map to='#edc948'>
+              <bucket>&quot;2011-12&quot;</bucket>
+            </map>
             <map to='#f28e2b'>
               <bucket>&quot;2017-18&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;2013-14&quot;</bucket>
             </map>
           </encoding>
           <encoding attr='color' field='[:Measure Names]' type='palette'>
@@ -2524,7 +2542,10 @@
             <column-instance column='[Calculation_1527283268398460938]' derivation='Sum' name='[sum:Calculation_1527283268398460938:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <filter class='categorical' column='[federated.1hif7vn18pzobz1948jb4033csbm].[none:PLAYER_NAME:nk]'>
-            <groupfilter function='member' level='[none:PLAYER_NAME:nk]' member='&quot;Bradley Beal&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:PLAYER_NAME:nk]' member='&quot;Bradley Beal&quot;' />
+              <groupfilter function='member' level='[none:PLAYER_NAME:nk]' member='&quot;John Wall&quot;' />
+            </groupfilter>
           </filter>
           <slices>
             <column>[federated.1hif7vn18pzobz1948jb4033csbm].[none:PLAYER_NAME:nk]</column>
@@ -2533,14 +2554,14 @@
         </view>
         <style>
           <style-rule element='cell'>
-            <format attr='width' field='[federated.1hif7vn18pzobz1948jb4033csbm].[none:SEASON:nk]' value='135' />
+            <format attr='width' field='[federated.1hif7vn18pzobz1948jb4033csbm].[none:SEASON:nk]' value='74' />
           </style-rule>
-          <style-rule element='header'>
-            <format attr='height-header' value='19' />
+          <style-rule element='label'>
+            <format attr='font-size' field='[federated.1hif7vn18pzobz1948jb4033csbm].[none:SEASON:nk]' value='8' />
           </style-rule>
         </style>
         <panes>
-          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
             <view>
               <breakdown value='auto' />
             </view>
@@ -2549,14 +2570,12 @@
               <style-rule element='pane'>
                 <format attr='minwidth' value='-1' />
                 <format attr='maxwidth' value='-1' />
-                <format attr='minwidth' value='-1' />
-                <format attr='maxwidth' value='-1' />
               </style-rule>
             </style>
           </pane>
         </panes>
-        <rows>[federated.1hif7vn18pzobz1948jb4033csbm].[sum:Calculation_1527283268398460938:qk]</rows>
-        <cols>([federated.1hif7vn18pzobz1948jb4033csbm].[none:PLAYER_NAME:nk] / [federated.1hif7vn18pzobz1948jb4033csbm].[none:SEASON:nk])</cols>
+        <rows>([federated.1hif7vn18pzobz1948jb4033csbm].[none:PLAYER_NAME:nk] * [federated.1hif7vn18pzobz1948jb4033csbm].[sum:Calculation_1527283268398460938:qk])</rows>
+        <cols>[federated.1hif7vn18pzobz1948jb4033csbm].[none:SEASON:nk]</cols>
       </table>
       <simple-id uuid='{534D092D-9D52-4035-8C50-6BE42AD7526C}' />
     </worksheet>
@@ -2720,7 +2739,7 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.1jugsle0kyxsg117o6e311gld7sa].[sum:OREB_RANK:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1jugsle0kyxsg117o6e311gld7sa].[sum:OREB:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
           </style-rule>
           <style-rule element='cell'>
             <format attr='width' field='[federated.1jugsle0kyxsg117o6e311gld7sa].[none:SEASON:nk]' value='125' />
@@ -2749,13 +2768,13 @@
             <view>
               <breakdown value='auto' />
             </view>
-            <mark class='Automatic' />
+            <mark class='Bar' />
             <encodings>
               <color column='[federated.1jugsle0kyxsg117o6e311gld7sa].[:Measure Names]' />
             </encodings>
           </pane>
         </panes>
-        <rows>([federated.1jugsle0kyxsg117o6e311gld7sa].[sum:OREB:qk] + [federated.1jugsle0kyxsg117o6e311gld7sa].[sum:OREB_RANK:qk])</rows>
+        <rows>([federated.1jugsle0kyxsg117o6e311gld7sa].[sum:OREB_RANK:qk] + [federated.1jugsle0kyxsg117o6e311gld7sa].[sum:OREB:qk])</rows>
         <cols>([federated.1jugsle0kyxsg117o6e311gld7sa].[none:TEAM_NAME:nk] / [federated.1jugsle0kyxsg117o6e311gld7sa].[none:SEASON:nk])</cols>
       </table>
       <simple-id uuid='{56E128C7-7AFD-4781-B8FD-F91596C5C433}' />
@@ -2991,7 +3010,7 @@
             <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='98000' id='12' w='98400' x='800' y='1000'>
               <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='9' param='horz' w='98400' x='800' y='1000'>
                 <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='98000' id='7' w='98400' x='800' y='1000'>
-                  <zone h='49000' id='3' name='Sheet 2' w='49199' x='800' y='50000'>
+                  <zone h='49000' id='3' name='Sheet 2' w='98400' x='800' y='50000'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -2999,15 +3018,7 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone h='49000' id='5' name='Sheet 3' w='49201' x='49999' y='50000'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='49000' id='6' name='Sheet 5' w='98400' x='800' y='1000'>
+                  <zone h='49000' id='5' name='Sheet 3' w='98400' x='800' y='1000'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -3076,7 +3087,7 @@
       <viewpoint>
         <current-page>
           <multibucket>
-            <bucket>&quot;2019-20&quot;</bucket>
+            <bucket>&quot;2013-14&quot;</bucket>
           </multibucket>
         </current-page>
       </viewpoint>
@@ -3127,7 +3138,7 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card pane-specification-id='1' param='[federated.1jugsle0kyxsg117o6e311gld7sa].[:Measure Names]' type='color' />
+            <card pane-specification-id='2' param='[federated.1jugsle0kyxsg117o6e311gld7sa].[:Measure Names]' type='color' />
           </strip>
         </edge>
       </cards>
@@ -3170,7 +3181,7 @@
       </viewpoint>
       <simple-id uuid='{8BD742B7-4320-4BB3-98DA-71B1453B8873}' />
     </window>
-    <window class='worksheet' maximized='true' name='Sheet 3 (2)'>
+    <window class='worksheet' name='Sheet 3 (2)'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -3206,58 +3217,6 @@
       </viewpoint>
       <simple-id uuid='{9C86DD62-AD4E-432B-BF21-92AEA25BC546}' />
     </window>
-    <window class='dashboard' name='Dashboard 1'>
-      <viewpoints>
-        <viewpoint name='Sheet 1'>
-          <current-page>
-            <multibucket>
-              <bucket>&quot;2019-20&quot;</bucket>
-            </multibucket>
-          </current-page>
-        </viewpoint>
-      </viewpoints>
-      <active id='-1' />
-      <simple-id uuid='{28D48613-908A-4377-B76F-B02CD4852267}' />
-    </window>
-    <window class='dashboard' name='Dashboard 2'>
-      <viewpoints>
-        <viewpoint name='Sheet 3 (2)'>
-          <current-page>
-            <multibucket>
-              <bucket>&quot;2019-20&quot;</bucket>
-            </multibucket>
-          </current-page>
-          <zoom type='entire-view' />
-        </viewpoint>
-      </viewpoints>
-      <active id='9' />
-      <simple-id uuid='{844B376C-5893-44E8-95A5-16780EF8743C}' />
-    </window>
-    <window class='dashboard' name='Dashboard 3'>
-      <viewpoints>
-        <viewpoint name='Sheet 2'>
-          <zoom type='entire-view' />
-        </viewpoint>
-        <viewpoint name='Sheet 3'>
-          <current-page>
-            <multibucket>
-              <bucket>&quot;2019-20&quot;</bucket>
-            </multibucket>
-          </current-page>
-          <zoom type='entire-view' />
-        </viewpoint>
-        <viewpoint name='Sheet 5'>
-          <current-page>
-            <multibucket>
-              <bucket>&quot;2016-17&quot;</bucket>
-            </multibucket>
-          </current-page>
-          <zoom type='entire-view' />
-        </viewpoint>
-      </viewpoints>
-      <active id='-1' />
-      <simple-id uuid='{E6981508-7142-44E0-BAF2-DC7C058547CE}' />
-    </window>
     <window class='worksheet' name='Sheet 6'>
       <cards>
         <edge name='left'>
@@ -3285,6 +3244,50 @@
         </edge>
       </cards>
       <simple-id uuid='{CE9B7671-69E5-4274-B037-0D85CEB66AC8}' />
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Sheet 1'>
+          <current-page>
+            <multibucket>
+              <bucket>&quot;2019-20&quot;</bucket>
+            </multibucket>
+          </current-page>
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{28D48613-908A-4377-B76F-B02CD4852267}' />
+    </window>
+    <window class='dashboard' name='Dashboard 2'>
+      <viewpoints>
+        <viewpoint name='Sheet 3 (2)'>
+          <current-page>
+            <multibucket>
+              <bucket>&quot;2019-20&quot;</bucket>
+            </multibucket>
+          </current-page>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{844B376C-5893-44E8-95A5-16780EF8743C}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 3'>
+      <viewpoints>
+        <viewpoint name='Sheet 2'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 3'>
+          <current-page>
+            <multibucket>
+              <bucket>&quot;2019-20&quot;</bucket>
+            </multibucket>
+          </current-page>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{E6981508-7142-44E0-BAF2-DC7C058547CE}' />
     </window>
   </windows>
 </workbook>
