@@ -3258,7 +3258,7 @@
       <active id='-1' />
       <simple-id uuid='{28D48613-908A-4377-B76F-B02CD4852267}' />
     </window>
-    <window class='dashboard' name='Dashboard 2'>
+    <window class='dashboard' maximized='true' name='Dashboard 2'>
       <viewpoints>
         <viewpoint name='Sheet 3 (2)'>
           <current-page>
@@ -3272,7 +3272,7 @@
       <active id='-1' />
       <simple-id uuid='{844B376C-5893-44E8-95A5-16780EF8743C}' />
     </window>
-    <window class='dashboard' maximized='true' name='Dashboard 3'>
+    <window class='dashboard' name='Dashboard 3'>
       <viewpoints>
         <viewpoint name='Sheet 2'>
           <zoom type='entire-view' />
